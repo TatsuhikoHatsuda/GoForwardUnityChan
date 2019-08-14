@@ -25,4 +25,12 @@ public class CubeController : MonoBehaviour {
             Destroy(gameObject);
         }
     }
+
+    // 衝突時に呼ばれる関数
+    void OnCollisionEnter2D(Collision2D collision) {
+        // 地面かブロックに衝突したときSEを鳴らす
+        if (collision.gameObject.tag == "GroundTag" || collision.gameObject.tag == "BlockTag") {
+            GetComponent<AudioSource>().Play();
+        }
+    }
 }
